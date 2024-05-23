@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  literalura_database:
+    container_name: "literaluradb"
+    image: postgres:alpine
+    env_file: ./.env
+    ports:
+      - ${PORT}:5432
+    restart: always
+
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
